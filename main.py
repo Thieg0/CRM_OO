@@ -1,15 +1,17 @@
-from models import ContactManager, SalesPipeline, ActivityTracker
+from models import ContactManager, SalesPipeline, ActivityTracker, TaskScheduler
 
 def main():
     contact_manager = ContactManager()
     sales_pipeline = SalesPipeline(contact_manager)
     activity_tracker = ActivityTracker(contact_manager)
+    task_scheduler = TaskScheduler(contact_manager)
 
     while True:
         print('\n===== Menu =====')
         print('1 - Manage contacts:')
         print('2 - Manage sales pipeline:')
         print('3 - Manage activities:')
+        print('4 - Manage appointments:')
         print('0 - Exit:')
         option = input('Enter the option: ')
 
@@ -74,6 +76,32 @@ def main():
                     activity_tracker.list_activities()
                 elif sub_potion == '3':
                     activity_tracker.find_activities_by_contact()
+                elif sub_potion == '0':
+                    break
+                else:
+                    print('Invalid option.')
+
+        elif option == '4':
+            while True:
+                print('\n===== Appointment management =====')
+                print('1 - Add appointment:')
+                print('2 - List appointments:')
+                print('3 - Update appointment status:')
+                print('4 - Remove appointment:')
+                print('5 - List appointments by contact:')
+                print('0 - Return:')
+                sub_potion = input('Enter the option: ')
+
+                if sub_potion == '1':
+                    task_scheduler.add_appointment()
+                elif sub_potion == '2':
+                    task_scheduler.list_appointments()
+                elif sub_potion == '3':
+                    task_scheduler.update_appointment_status()
+                elif sub_potion == '4':
+                    task_scheduler.remove_appointment()
+                elif sub_potion == '5':
+                    task_scheduler.list_appointments_by_contact()
                 elif sub_potion == '0':
                     break
                 else:

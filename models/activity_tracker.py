@@ -1,8 +1,9 @@
 from models.activity import Activity
 
 class ActivityTracker:
-    def __init__(self):
+    def __init__(self, contact_manager):
         self.activities = []
+        self.contact_manager = contact_manager
 
     def add_activity(self):
         cpf = input('Enter the CPF of the contact: ')
@@ -20,7 +21,7 @@ class ActivityTracker:
         for activity in self.activities:
             print(activity)
 
-    def find_activities_by_contact(self, cpf):
+    def find_activities_by_contact(self):
         cpf = input('Enter the CPF of the contact: ')
         activities = [act for act in self.activities if act.cpf == cpf]
         if not activities:
