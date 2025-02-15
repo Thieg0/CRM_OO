@@ -1,6 +1,6 @@
 from models.contact import Contact
 
-class contactManager:
+class ContactManager:
     def __init__(self):
         self.contacts = {}
 

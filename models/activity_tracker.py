@@ -4,7 +4,7 @@ class ActivityTracker:
     def __init__(self):
         self.activities = []
 
-    def add_activity(self, cpf, activity_type, description):
+    def add_activity(self):
         cpf = input('Enter the CPF of the contact: ')
         activity_type = input('Enter the type of activity (call, meeting, email): ')
         description = input('Enter the description of the activity: ')

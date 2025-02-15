@@ -20,28 +20,28 @@ class SalesPipeline:
         self.opportunities[id] = opportunity
         print(f'Opportunity added successfully! ID: {id}')
 
-        def list_opportunities(self):
-            if not self.opportunities:
-                print('No opportunities found.')
-                return
+    def list_opportunities(self):
+        if not self.opportunities:
+            print('No opportunities found.')
+            return
 
-            for opportunity in self.opportunities.values():
-                print(opportunity)
+        for opportunity in self.opportunities.values():
+            print(opportunity)
 
-        def update_opportunity_stage(self):
-            id = int(input('Enter the ID of the opportunity: '))
-            if id in self.opportunities:
-                new_stage = input('Enter the new stage of the deal (Prospection, Negotiation, Closed): ')
-                self.opportunities[id].update_stage(stage)
-                print('Opportunity updated successfully!')
-            else:
-                print('Opportunity not found.')
+    def update_opportunity_stage(self):
+        id = int(input('Enter the ID of the opportunity: '))
+        if id in self.opportunities:
+            new_stage = input('Enter the new stage of the deal (Prospection, Negotiation, Closed): ')
+            self.opportunities[id].update_stage(new_stage)
+            print('Opportunity updated successfully!')
+        else:
+            print('Opportunity not found.')
 
-        def remove_opportunity(self):
-            id = int(input('Enter the ID of the opportunity: '))
-            if id in self.opportunities:
-                del self.opportunities[id]
-                print('Opportunity removed successfully!')
-            else:
-                print('Opportunity not found.')
+    def remove_opportunity(self):
+        id = int(input('Enter the ID of the opportunity: '))
+        if id in self.opportunities:
+            del self.opportunities[id]
+            print('Opportunity removed successfully!')
+        else:
+            print('Opportunity not found.')
 
