@@ -1,10 +1,11 @@
-from models import ContactManager, SalesPipeline, ActivityTracker, TaskScheduler
+from models import ContactManager, SalesPipeline, ActivityTracker, TaskScheduler, TemplateManager
 
 def main():
     contact_manager = ContactManager()
     sales_pipeline = SalesPipeline(contact_manager)
     activity_tracker = ActivityTracker(contact_manager)
     task_scheduler = TaskScheduler(contact_manager)
+    template_manager = TemplateManager()
 
     while True:
         print('\n===== Menu =====')
@@ -12,6 +13,7 @@ def main():
         print('2 - Manage sales pipeline:')
         print('3 - Manage activities:')
         print('4 - Manage appointments:')
+        print('5 - Manage email templates:')
         print('0 - Exit:')
         option = input('Enter the option: ')
 
@@ -102,6 +104,29 @@ def main():
                     task_scheduler.remove_appointment()
                 elif sub_potion == '5':
                     task_scheduler.list_appointments_by_contact()
+                elif sub_potion == '0':
+                    break
+                else:
+                    print('Invalid option.')
+
+        elif option == '5':
+            while True:
+                print('\n===== Email template management =====')
+                print('1 - Create template:')
+                print('2 - List templates:')
+                print('3 - Preview template:')
+                print('4 - Remove template:')
+                print('0 - Return:')
+                sub_potion = input('Enter the option: ')
+
+                if sub_potion == '1':
+                    template_manager.create_template()
+                elif sub_potion == '2':
+                    template_manager.list_templates()
+                elif sub_potion == '3':
+                    template_manager.preview_template()
+                elif sub_potion == '4':
+                    template_manager.remove_template()
                 elif sub_potion == '0':
                     break
                 else:

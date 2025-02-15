@@ -2,7 +2,7 @@ Customer Relationship Management (CRM) Tool
 • Contact Management: Storing and managing customer contact information; (V)
 • Sales Pipeline Management: Managing the stages of the sales process; (V)
 • Activity Tracking: Tracking interactions with customers, such as calls and meetings; (V)
-• Task and Appointment Scheduling: Organizing tasks and appointments with customers; ()
+• Task and Appointment Scheduling: Organizing tasks and appointments with customers; (V)
 • Email Integration and Campaign Management: Managing email communications and marketing ()
 campaigns;
 • Lead Generation and Tracking: Tracking potential leads and their progress; ()

@@ -6,6 +6,8 @@ from .activity import Activity
 from .activity_tracker import ActivityTracker
 from .appointment import Appointment
 from .task_scheduler import TaskScheduler
+from .email_template import EmailTemplate
+from .template_manager import TemplateManager
 
 __all__ = [
     'Contact',
