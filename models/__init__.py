@@ -8,6 +8,8 @@ from .appointment import Appointment
 from .task_scheduler import TaskScheduler
 from .email_template import EmailTemplate
 from .template_manager import TemplateManager
+from .email_campaign import EmailCampaign
+from .campaign_manager import CampaignManager
 
 __all__ = [
     'Contact',

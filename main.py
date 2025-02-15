@@ -1,4 +1,4 @@
-from models import ContactManager, SalesPipeline, ActivityTracker, TaskScheduler, TemplateManager
+from models import ContactManager, SalesPipeline, ActivityTracker, TaskScheduler, TemplateManager, CampaignManager
 
 def main():
     contact_manager = ContactManager()
@@ -6,6 +6,7 @@ def main():
     activity_tracker = ActivityTracker(contact_manager)
     task_scheduler = TaskScheduler(contact_manager)
     template_manager = TemplateManager()
+    campaign_manager = CampaignManager(contact_manager, template_manager)
 
     while True:
         print('\n===== Menu =====')
@@ -13,7 +14,7 @@ def main():
         print('2 - Manage sales pipeline:')
         print('3 - Manage activities:')
         print('4 - Manage appointments:')
-        print('5 - Manage email templates:')
+        print('5 - Manage emails:')
         print('0 - Exit:')
         option = input('Enter the option: ')
 
@@ -111,26 +112,60 @@ def main():
 
         elif option == '5':
             while True:
-                print('\n===== Email template management =====')
-                print('1 - Create template:')
-                print('2 - List templates:')
-                print('3 - Preview template:')
-                print('4 - Remove template:')
+                print('\n===== Email campaign management =====')
+                print('1 - Manage templates:')
+                print('2 - Manage campaigns:')
                 print('0 - Return:')
                 sub_potion = input('Enter the option: ')
 
                 if sub_potion == '1':
-                    template_manager.create_template()
+                    while True:
+                        print('\n===== Template management =====')
+                        print('1 - Create template:')
+                        print('2 - List templates:')
+                        print('3 - Preview template:')
+                        print('4 - Remove template:')
+                        print('0 - Return:')
+                        template_option = input('Enter the option: ')
+
+                        if template_option == '1':
+                            template_manager.create_template()
+                        elif template_option == '2':
+                            template_manager.list_templates()
+                        elif template_option == '3':
+                            template_manager.preview_template()
+                        elif template_option == '4':
+                            template_manager.remove_template()
+                        elif template_option == '0':
+                            break
+                        else:
+                            print('Invalid option.')
+
                 elif sub_potion == '2':
-                    template_manager.list_templates()
-                elif sub_potion == '3':
-                    template_manager.preview_template()
-                elif sub_potion == '4':
-                    template_manager.remove_template()
-                elif sub_potion == '0':
-                    break
-                else:
-                    print('Invalid option.')
+                    while True:
+                        print('\n===== Campaign management =====')
+                        print('1 - Create campaign:')
+                        print('2 - List campaigns:')
+                        print('3 - Schedule campaign:')
+                        print('4 - Cancel campaign:')
+                        print('5 - View campaign statistics:')
+                        print('0 - Return:')
+                        campaign_option = input('Enter the option: ')
+
+                        if campaign_option == '1':
+                            campaign_manager.create_campaign()
+                        elif campaign_option == '2':
+                            campaign_manager.list_campaigns()
+                        elif campaign_option == '3':
+                            campaign_manager.schedule_campaign()
+                        elif campaign_option == '4':
+                            campaign_manager.cancel_campaign()
+                        elif campaign_option == '5':
+                            campaign_manager.view_campaign_stats()
+                        elif campaign_option == '0':
+                            break
+                        else:
+                            print('Invalid option.')
 
         elif option == '0':
             print('Goodbye!')
