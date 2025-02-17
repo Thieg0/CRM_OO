@@ -1,4 +1,4 @@
-from models import ContactManager, SalesPipeline, ActivityTracker, TaskScheduler, TemplateManager, CampaignManager, LeadManager, DashboardManager, AnalyticsManager
+from models import ContactManager, SalesPipeline, ActivityTracker, TaskScheduler, TemplateManager, CampaignManager, LeadManager, DashboardManager, AnalyticsManager, DocumentManager
 
 def main():
     contact_manager = ContactManager()
@@ -10,6 +10,7 @@ def main():
     lead_manager = LeadManager()
     dashboard_manager = DashboardManager(contact_manager, sales_pipeline, lead_manager, task_scheduler)
     analytics_manager = AnalyticsManager(contact_manager, sales_pipeline, lead_manager)
+    document_manager = DocumentManager()
 
     while True:
         print('\n===== Menu =====')
@@ -21,6 +22,7 @@ def main():
         print('6 - Manage leads:')
         print('7 - Manage dashboard:')
         print('8 - Reports and Analytics:')
+        print('9 - Manage documents:')
         print('0 - Exit:')
         option = input('Enter the option: ')
 
@@ -248,6 +250,32 @@ def main():
                         analytics_manager.view_report(index)
                     except ValueError:
                         print('Please enter a valid number.')
+                elif sub_potion == '0':
+                    break
+                else:
+                    print('Invalid option.')
+
+        elif option == '9':
+            while True:
+                print('\n===== Document management =====')
+                print('1 - Upload document:')
+                print('2 - List documents:')
+                print('3 - Search document:')
+                print('4 - View document:')
+                print('5 - Update document:')
+                print('0 - Return:')
+                sub_potion = input('Enter the option: ')
+
+                if sub_potion == '1':
+                    document_manager.upload_document()
+                elif sub_potion == '2':
+                    document_manager.list_documents()
+                elif sub_potion == '3':
+                    document_manager.search_document()
+                elif sub_potion == '4':
+                    document_manager.view_document()
+                elif sub_potion == '5':
+                    document_manager.update_document()
                 elif sub_potion == '0':
                     break
                 else:

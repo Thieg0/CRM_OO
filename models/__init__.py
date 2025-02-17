@@ -17,6 +17,8 @@ from .dashboard import Dashboard
 from .dashboard_manager import DashboardManager
 from .report import Report
 from .analytics_manager import AnalyticsManager
+from. document import Document
+from .document_manager import DocumentManager
 
 __all__ = [
     'Contact',
