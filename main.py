@@ -1,4 +1,4 @@
-from models import ContactManager, SalesPipeline, ActivityTracker, TaskScheduler, TemplateManager, CampaignManager, LeadManager, DashboardManager
+from models import ContactManager, SalesPipeline, ActivityTracker, TaskScheduler, TemplateManager, CampaignManager, LeadManager, DashboardManager, AnalyticsManager
 
 def main():
     contact_manager = ContactManager()
@@ -9,6 +9,7 @@ def main():
     campaign_manager = CampaignManager(contact_manager, template_manager)
     lead_manager = LeadManager()
     dashboard_manager = DashboardManager(contact_manager, sales_pipeline, lead_manager, task_scheduler)
+    analytics_manager = AnalyticsManager(contact_manager, sales_pipeline, lead_manager)
 
     while True:
         print('\n===== Menu =====')
@@ -19,6 +20,7 @@ def main():
         print('5 - Manage emails:')
         print('6 - Manage leads:')
         print('7 - Manage dashboard:')
+        print('8 - Reports and Analytics:')
         print('0 - Exit:')
         option = input('Enter the option: ')
 
@@ -216,6 +218,40 @@ def main():
                     break
                 else:
                     print('Invalid option')
+
+        elif option == '8':
+            while True:
+                print('\n===== Reports and Analytics =====')
+                print('1 - Generate sales report:')
+                print('2 - Generate lead report:')
+                print('3 - Generate pipeline report:')
+                print('4 - List reports:')
+                print('5 - View report details:')
+                print('0 - Return:')
+                sub_potion = input('Enter the option: ')
+
+                if sub_potion == '1':
+                    analytics_manager.generate_sales_report()
+                    print("Sales report generated successfully.")
+                elif sub_potion == '2':
+                    analytics_manager.generate_lead_report()
+                    print("Lead report generated successfully.")
+                elif sub_potion == '3':
+                    analytics_manager.generate_pipeline_report()
+                    print("Pipeline report generated successfully.")
+                elif sub_potion == '4':
+                    analytics_manager.list_reports()
+                elif sub_potion == '5':
+                    analytics_manager.list_reports()
+                    try:
+                        index = int(input('Enter the report index: '))
+                        analytics_manager.view_report(index)
+                    except ValueError:
+                        print('Please enter a valid number.')
+                elif sub_potion == '0':
+                    break
+                else:
+                    print('Invalid option.')
 
         elif option == '0':
             print('Goodbye!')

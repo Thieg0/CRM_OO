@@ -15,6 +15,8 @@ from .lead_manager import LeadManager
 from .dashboard_widget import DashboardWidget
 from .dashboard import Dashboard
 from .dashboard_manager import DashboardManager
+from .report import Report
+from .analytics_manager import AnalyticsManager
 
 __all__ = [
     'Contact',
