@@ -1,92 +1,98 @@
-# CRM Tool - Python Project
+# CRM Tool - Sistema de Gerenciamento de Relacionamento com o Cliente
 
-This project is a simple Customer Relationship Management (CRM) tool built in Python. It allows you to manage contacts, appointments, and schedules directly from the command line.
+## 📋 Descrição
+Sistema CRM desenvolvido em Python, oferecendo funcionalidades completas para gerenciamento de clientes, vendas, atividades e documentos.
 
-## Features
-1. **Contact Management**: Add, update, remove, and list contacts (name, phone, email);
-2. **Task and Appointment Scheduling**: Add, update, remove, and list appointments (title, date/time, description);
-3. **Activity Tracking**: Tracking interactions with customers, such as calls and meetings;
+## 🚀 Funcionalidades Implementadas
+1. Contact Management
+2. Sales Pipeline Management
+3. Activity Tracking
+4. Task and Appointment Scheduling
+5. Email Integration and Campaign Management
+6. Lead Generation and Tracking
+7. Customizable Dashboards
+8. Reporting and Analytics
+9. Document Storage and Management
 
-## 🏗️ **Classes e Funcionalidades**
+## 🏗️ Estrutura de Classes
 
-### 📌 `Contact`
-Classe que representa um **contato** no sistema.
+### 📌 `Contact` e `ContactManager`
+**Gerenciamento de Contatos**
+- `Contact`: Representa um contato no sistema
+  - Atributos: cpf, name, phone, email
+  - Métodos: update_contact()
 
-#### **Atributos**:
-- `cpf`: Identificador único do contato.
-- `name`: Nome do contato.
-- `phone`: Número de telefone.
-- `email`: Endereço de e-mail.
+- `ContactManager`: Gerencia os contatos
+  - Atributos: contacts (dicionário)
+  - Métodos: add_contact(), list_contacts(), search_contact(), remove_contact(), update_contact()
 
-#### **Métodos**:
-- `__str__()`: Retorna uma string formatada com os dados do contato.
+### 📌 `SalesOpportunity` e `SalesPipeline`
+**Gerenciamento de Vendas**
+- `SalesOpportunity`: Representa uma oportunidade de venda
+  - Atributos: id, contact, value, stage
+  - Métodos: update_stage()
 
----
+- `SalesPipeline`: Gerencia oportunidades de vendas
+  - Métodos: add_opportunity(), list_opportunities(), update_opportunity_stage(), remove_opportunity()
 
-### 📌 `ContactManager`
-Classe responsável por gerenciar os contatos.
+### 📌 `Activity` e `ActivityTracker`
+**Rastreamento de Atividades**
+- `Activity`: Representa uma atividade com cliente
+  - Atributos: cpf, activity_type, description, timestamp
 
-#### **Atributos**:
-- `contacts`: Dicionário que armazena os contatos cadastrados.
+- `ActivityTracker`: Gerencia atividades
+  - Métodos: add_activity(), list_activities(), find_activities_by_contact()
 
-#### **Métodos**:
-- `add_contact(cpf, name, phone, email)`: Adiciona um novo contato.
-- `list_contacts()`: Lista todos os contatos cadastrados.
-- `search_contact(cpf)`: Retorna um contato pelo CPF.
-- `remove_contact(cpf)`: Remove um contato pelo CPF.
-- `update_contact(cpf, name, phone, email)`: Atualiza as informações de um contato.
+### 📌 `Appointment` e `TaskScheduler`
+**Agendamento de Compromissos**
+- `Appointment`: Representa um compromisso
+  - Atributos: contact, title, date_time, description, status
 
----
+- `TaskScheduler`: Gerencia compromissos
+  - Métodos: add_appointment(), list_appointments(), update_appointment_status()
 
-### 📌 `SalesOpportunity`
-Classe que representa uma **oportunidade de venda**.
+### 📌 `EmailTemplate` e `CampaignManager`
+**Gestão de Campanhas de Email**
+- `EmailTemplate`: Modelo de email
+  - Atributos: name, subject, content, variables
 
-#### **Atributos**:
-- `cpf`: CPF do contato relacionado à oportunidade.
-- `description`: Descrição da oportunidade.
-- `stage`: Estágio da oportunidade (ex.: Prospecção, Negociação, Fechado).
+- `CampaignManager`: Gerencia campanhas
+  - Métodos: create_campaign(), schedule_campaign(), list_campaigns()
 
-#### **Métodos**:
-- `__str__()`: Retorna uma string formatada com os dados da oportunidade.
+### 📌 `Lead` e `LeadManager`
+**Gestão de Leads**
+- `Lead`: Representa um lead potencial
+  - Atributos: name, email, phone, source, status, score
 
----
+- `LeadManager`: Gerencia leads
+  - Métodos: add_lead(), update_status(), add_note(), view_details()
 
-### 📌 `SalesPipeline`
-Classe responsável por gerenciar oportunidades de vendas.
+### 📌 `Dashboard` e `DashboardManager`
+**Painéis Personalizáveis**
+- `DashboardWidget`: Componente do dashboard
+  - Atributos: title, widget_type, data_source
 
-#### **Atributos**:
-- `opportunities`: Lista de oportunidades de venda.
-- `contact_manager`: Instância de `ContactManager` para buscar contatos.
+- `DashboardManager`: Gerencia dashboards
+  - Métodos: create_dashboard(), customize_dashboard(), view_dashboard()
 
-#### **Métodos**:
-- `add_opportunity()`: Adiciona uma nova oportunidade.
-- `list_opportunities()`: Lista todas as oportunidades cadastradas.
+### 📌 `Report` e `AnalyticsManager`
+**Relatórios e Análises**
+- `Report`: Representa um relatório
+  - Atributos: title, report_type, data
 
----
+- `AnalyticsManager`: Gerencia relatórios
+  - Métodos: generate_sales_report(), generate_lead_report(), view_report()
 
-### 📌 `Activity`
-Classe que representa uma **atividade** relacionada a um contato.
+### 📌 `Document` e `DocumentManager`
+**Gestão de Documentos**
+- `Document`: Representa um documento
+  - Atributos: name, category, content, version
 
-#### **Atributos**:
-- `cpf`: CPF do contato associado à atividade.
-- `activity_type`: Tipo da atividade (ex.: chamada, reunião, e-mail).
-- `description`: Descrição da interação.
-- `timestamp`: Data e hora da atividade.
+- `DocumentManager`: Gerencia documentos
+  - Métodos: upload_document(), search_documents(), update_document()
 
-#### **Métodos**:
-- `__str__()`: Retorna uma string formatada com os detalhes da atividade.
-
----
-
-### 📌 `ActivityTracker`
-Classe responsável por rastrear atividades.
-
-#### **Atributos**:
-- `activities`: Lista de atividades registradas.
-
-#### **Métodos**:
-- `add_activity()`: Adiciona uma atividade ao sistema.
-- `list_activities()`: Lista todas as atividades registradas.
-- `find_activities_by_contact(cpf)`: Busca atividades associadas a um CPF.
-
----
+## 🛠️ Tecnologias Utilizadas
+- Python 3.x
+- Programação Orientada a Objetos
+- Estruturas de Dados (Dicionários, Listas)
+- Manipulação de Datas e Arquivos
