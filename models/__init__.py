@@ -12,6 +12,9 @@ from .email_campaign import EmailCampaign
 from .campaign_manager import CampaignManager
 from .lead import Lead
 from .lead_manager import LeadManager
+from .dashboard_widget import DashboardWidget
+from .dashboard import Dashboard
+from .dashboard_manager import DashboardManager
 
 __all__ = [
     'Contact',

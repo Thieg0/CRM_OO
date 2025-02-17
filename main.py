@@ -1,4 +1,4 @@
-from models import ContactManager, SalesPipeline, ActivityTracker, TaskScheduler, TemplateManager, CampaignManager, LeadManager
+from models import ContactManager, SalesPipeline, ActivityTracker, TaskScheduler, TemplateManager, CampaignManager, LeadManager, DashboardManager
 
 def main():
     contact_manager = ContactManager()
@@ -8,6 +8,7 @@ def main():
     template_manager = TemplateManager()
     campaign_manager = CampaignManager(contact_manager, template_manager)
     lead_manager = LeadManager()
+    dashboard_manager = DashboardManager(contact_manager, sales_pipeline, lead_manager, task_scheduler)
 
     while True:
         print('\n===== Menu =====')
@@ -17,6 +18,7 @@ def main():
         print('4 - Manage appointments:')
         print('5 - Manage emails:')
         print('6 - Manage leads:')
+        print('7 - Manage dashboard:')
         print('0 - Exit:')
         option = input('Enter the option: ')
 
@@ -190,6 +192,26 @@ def main():
                     lead_manager.add_lead_note()
                 elif sub_potion == '5':
                     lead_manager.view_lead_details()
+                elif sub_potion == '0':
+                    break
+                else:
+                    print('Invalid option')
+
+        elif option == '7':
+            while True:
+                print('\n===== Dashboard management =====')
+                print('1 - Create dashboard:')
+                print('2 - List dashboards:')
+                print('3 - Customize dashboard:')
+                print('0 - Return:')
+                sub_potion = input('Enter the option: ')
+
+                if sub_potion == '1':
+                    dashboard_manager.create_dashboard()
+                elif sub_potion == '2':
+                    dashboard_manager.list_dashboards()
+                elif sub_potion == '3':
+                    dashboard_manager.customize_dashboard()
                 elif sub_potion == '0':
                     break
                 else:

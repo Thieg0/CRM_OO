@@ -5,8 +5,8 @@ Customer Relationship Management (CRM) Tool
 • Task and Appointment Scheduling: Organizing tasks and appointments with customers; (V)
 • Email Integration and Campaign Management: Managing email communications and marketing (v)
 campaigns;
-• Lead Generation and Tracking: Tracking potential leads and their progress; ()
-• Customizable Dashboards: Offering customizable dashboards for different user roles; ()
+• Lead Generation and Tracking: Tracking potential leads and their progress; (v)
+• Customizable Dashboards: Offering customizable dashboards for different user roles; (v)
 • Reporting and Analytics: Providing sales reports and customer analytics; ()
 • Document Storage and Management: Storing and managing sales and marketing documents; ()
 • Mobile Access and Integration: Ensuring CRM accessibility and functionality on mobile devices. ()
