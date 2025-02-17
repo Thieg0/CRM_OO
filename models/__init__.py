@@ -10,6 +10,8 @@ from .email_template import EmailTemplate
 from .template_manager import TemplateManager
 from .email_campaign import EmailCampaign
 from .campaign_manager import CampaignManager
+from .lead import Lead
+from .lead_manager import LeadManager
 
 __all__ = [
     'Contact',

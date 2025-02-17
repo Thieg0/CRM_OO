@@ -1,4 +1,4 @@
-from models import ContactManager, SalesPipeline, ActivityTracker, TaskScheduler, TemplateManager, CampaignManager
+from models import ContactManager, SalesPipeline, ActivityTracker, TaskScheduler, TemplateManager, CampaignManager, LeadManager
 
 def main():
     contact_manager = ContactManager()
@@ -7,6 +7,7 @@ def main():
     task_scheduler = TaskScheduler(contact_manager)
     template_manager = TemplateManager()
     campaign_manager = CampaignManager(contact_manager, template_manager)
+    lead_manager = LeadManager()
 
     while True:
         print('\n===== Menu =====')
@@ -15,6 +16,7 @@ def main():
         print('3 - Manage activities:')
         print('4 - Manage appointments:')
         print('5 - Manage emails:')
+        print('6 - Manage leads:')
         print('0 - Exit:')
         option = input('Enter the option: ')
 
@@ -166,6 +168,32 @@ def main():
                             break
                         else:
                             print('Invalid option.')
+
+        elif option == '6':
+            while True:
+                print('\n===== Lead management =====')
+                print('1 - Add lead:')
+                print('2 - List lead:')
+                print('3 - Update lead status:')
+                print('4 - Add lead note:')
+                print('5 - View lead details:')
+                print('0 - Return:')
+                sub_potion = input('Enter the option: ')
+
+                if sub_potion == '1':
+                    lead_manager.add_lead()
+                elif sub_potion == '2':
+                    lead_manager.list_leads()
+                elif sub_potion == '3':
+                    lead_manager.update_lead_status()
+                elif sub_potion == '4':
+                    lead_manager.add_lead_note()
+                elif sub_potion == '5':
+                    lead_manager.view_lead_details()
+                elif sub_potion == '0':
+                    break
+                else:
+                    print('Invalid option')
 
         elif option == '0':
             print('Goodbye!')
