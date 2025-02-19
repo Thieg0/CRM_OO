@@ -8,4 +8,4 @@ class Activity:
         self.timestamp = datetime.now()
 
     def __str__(self):
-        return f'[{self.timestamp.strftime('%Y-%m-%d %H:%M:%S')}] {self.activity_type} - {self.description} (CPF: {self.cpf})'
+        return f"[{self.timestamp.strftime('%Y-%m-%d %H:%M:%S')}] {self.activity_type} - {self.description} (CPF: {self.cpf})"
