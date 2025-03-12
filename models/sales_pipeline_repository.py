@@ -1,6 +1,6 @@
 class SalesPipelineRepository:
     def __init__(self):
-        self.opportunities = []
+        self.opportunities = {}
         self.next_id = 1
 
     def add(self, contact, value, stage):

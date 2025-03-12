@@ -2,10 +2,10 @@ from datetime import datetime
 from models.appointment import Appointment
 
 class AppointmentController:
-    def __init__(self, view, appointment_repository, contact_repository):
+    def __init__(self, view, appointment_repository, contact_controller):
         self.view = view
-        self.appointment_repository = appointment_repository
-        self.contact_repository = contact_repository
+        self.repository = appointment_repository
+        self.contact_controller = contact_controller
 
     def add_appointment(self):
         contact = self.contact_controller.search_contact()

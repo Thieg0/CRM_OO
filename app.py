@@ -105,7 +105,7 @@ def handle_sales_pipeline_menu(controller, view):
         elif option == '2':
             controller.list_opportunities()
         elif option == '3':
-            controller.update_opportunity()
+            controller.update_opportunity_stage()
         elif option == '4':
             controller.remove_opportunity()
         elif option == '0':

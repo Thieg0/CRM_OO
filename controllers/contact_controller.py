@@ -9,7 +9,7 @@ class ContactController:
 
     def add_contact(self):
         try:
-            contact_data = self.view.get_contact_data()
+            contact_data = self.view.get_contact_info()
             cpf = self.validator.validate_cpf(contact_data['cpf'])
             if cpf in self.repository.contacts:
                 self.view.show_message('ERROR: A contact with this CPF already exists.')

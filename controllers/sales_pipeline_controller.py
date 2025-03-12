@@ -13,7 +13,7 @@ class SalesPipelineController:
         try:
             opportunity_data = self.view.get_opportunity_info()
             
-            value = float(opportunity_data['stage'])
+            value = float(opportunity_data['value'])
             stage = opportunity_data['stage']
 
             opportunity = self.repository.add(contact, value, stage)

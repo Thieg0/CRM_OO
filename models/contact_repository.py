@@ -1,7 +1,7 @@
 class ContactRepository:
 
     def __init__(self):
-        self.contacts = []
+        self.contacts = {}
 
     def add(self, contact):
         self.contacts[contact.cpf] = contact

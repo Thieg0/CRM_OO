@@ -7,7 +7,7 @@ class AnalyticsRepository:
         """
         Initializes the analytics repository.
         """
-        self.reports = []
+        self.reports = {}
     
     def add(self, report):
         """
