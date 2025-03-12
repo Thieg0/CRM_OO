@@ -11,6 +11,8 @@ class Dashboard:
         if 1 <= position <= len(self.widgets):
             self.widgets.pop(position - 1)
             self._update_positions()
+            return True
+        return False
 
     def _update_positions(self):
         for i, widget in enumerate(self.widgets, 1):

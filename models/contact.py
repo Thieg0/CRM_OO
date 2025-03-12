@@ -8,11 +8,11 @@ class Contact:
     def __str__(self):
         return f"CPF: {self.cpf} | Name: {self.name} | Phone: {self.phone} | Email: {self.email}"
 
-    def update_contact(self, name = None, phone = None, email = None):
+    def update(self, name = None, phone = None, email = None):
         if name:
             self.name = name
         if phone:
             self.phone = phone
         if email:
             self.email = email
-        print('Contact updated successfully!')
+        return True

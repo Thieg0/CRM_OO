@@ -1,32 +1,47 @@
+# Models package for CRM system
+
 from .contact import Contact
-from .contact_manager import ContactManager
+from .contact_repository import ContactRepository
 from .sales_opportunity import SalesOpportunity
-from .sales_pipeline import SalesPipeline
+from .sales_pipeline_repository import SalesPipelineRepository
 from .activity import Activity
-from .activity_tracker import ActivityTracker
+from .activity_repository import ActivityRepository
 from .appointment import Appointment
-from .task_scheduler import TaskScheduler
-from .email_template import EmailTemplate
-from .template_manager import TemplateManager
-from .email_campaign import EmailCampaign
-from .campaign_manager import CampaignManager
+from .appointment_repository import AppointmentRepository
 from .lead import Lead
-from .lead_manager import LeadManager
+from .lead_repository import LeadRepository
+from .email_template import EmailTemplate
+from .template_repository import TemplateRepository
+from .email_campaign import EmailCampaign
+from .campaign_repository import CampaignRepository
 from .dashboard_widget import DashboardWidget
 from .dashboard import Dashboard
-from .dashboard_manager import DashboardManager
+from .dashboard_repository import DashboardRepository
 from .report import Report
-from .analytics_manager import AnalyticsManager
-from. document import Document
-from .document_manager import DocumentManager
+from .analytics_repository import AnalyticsRepository
+from .document import Document
+from .document_repository import DocumentRepository
 
 __all__ = [
     'Contact',
-    'ContactManager',
+    'ContactRepository',
     'SalesOpportunity',
-    'SalesPipeline',
+    'SalesPipelineRepository',
     'Activity',
-    'ActivityTracker',
+    'ActivityRepository',
     'Appointment',
-    'TaskScheduler'
+    'AppointmentRepository',
+    'Lead',
+    'LeadRepository',
+    'EmailTemplate',
+    'TemplateRepository',
+    'EmailCampaign',
+    'CampaignRepository',
+    'DashboardWidget',
+    'Dashboard',
+    'DashboardRepository',
+    'Report',
+    'AnalyticsRepository',
+    'Document',
+    'DocumentRepository'
 ]
