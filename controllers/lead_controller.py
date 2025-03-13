@@ -3,7 +3,7 @@ from models.lead import Lead
 class LeadController:
     def __init__(self, view, lead_repository):
         self.view = view
-        self.lead_repository = lead_repository
+        self.repository = lead_repository
 
     def add_lead(self):
         try:

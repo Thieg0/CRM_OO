@@ -7,7 +7,7 @@ class EmailTemplate:
         self.content = content
         self.variables = self.extract_variables()
 
-    def _extract_variables(self):
+    def extract_variables(self):
         """Extract variables from template content that are between curly braces {}"""
         pattern = r'\{([^}]+)\}'
         return list(set(re.findall(pattern, self.content)))

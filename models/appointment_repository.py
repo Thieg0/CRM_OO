@@ -2,7 +2,7 @@ from datetime import datetime
 
 class AppointmentRepository:
     def __init__(self):
-        self.appointments = {}
+        self.appointments = []
 
     def add(self, appointment):
         self.appointments.append(appointment)

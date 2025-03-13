@@ -64,9 +64,9 @@ def main():
         elif option == '4':
             handle_appointment_menu(appointment_controller, appointment_view)
         elif option == '5':
-            handle_lead_menu(lead_controller, lead_view)
-        elif option == '6':
             handle_email_menu(template_controller, campaign_controller, template_view, campaign_view)
+        elif option == '6':
+            handle_lead_menu(lead_controller, lead_view)
         elif option == '7':
             handle_dashboard_menu(dashboard_controller, dashboard_view)
         elif option == '8':
